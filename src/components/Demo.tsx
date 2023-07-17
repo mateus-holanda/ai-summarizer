@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { FormEvent, useEffect, useState } from "react"
 
-import { copy, linkIcon, loader, tick } from "../assets"
+import { linkIcon, loader } from "../assets"
 import { useLazyGetSummaryQuery } from "../services/article"
 
 type Article = {
@@ -83,7 +83,7 @@ export function Demo() {
           </button>
         </form>
 
-        <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
+        {/* <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
           {allArticles.map((item, index) => (
             <div
               key={`link-${index}`}
@@ -105,7 +105,7 @@ export function Demo() {
               </p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
       <div className="my-10 max-w-full flex justify-center items-center">
