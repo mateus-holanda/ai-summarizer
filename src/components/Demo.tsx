@@ -44,7 +44,7 @@ export function Demo() {
 
   useEffect(() => {
     const articlesFromLocalStorage: Article[] = JSON.parse(
-      localStorage.getItem('articles')
+      localStorage.getItem('articles') || "{}"
     )
 
     if (articlesFromLocalStorage) {
