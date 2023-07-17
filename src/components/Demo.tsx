@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
@@ -16,7 +17,7 @@ export function Demo() {
     url: '',
     summary: '',
   })
-  const [allArticles, setAllArticles] = useState<Article[]>([] as Article[])
+  const [allArticles, setAllArticles] = useState<Article[]>([])
   const [copied, setCopied] = useState('')
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery()
@@ -36,9 +37,9 @@ export function Demo() {
     }
   }
 
-  async function handleCopy(copyUrl: string) {
+  function handleCopy(copyUrl: string) {
     setCopied(copyUrl)
-    await navigator.clipboard.writeText(copyUrl)
+    navigator.clipboard.writeText(copyUrl)
     setTimeout(() => setCopied(''), 3000)
   }
 
@@ -91,7 +92,7 @@ export function Demo() {
             >
               <div
                 className="copy_btn"
-                onClick={async () => await handleCopy(item.url)}
+                onClick={() => handleCopy(item.url)}
               >
                 <img
                   src={copied === item.url ? tick : copy}
