@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-misused-promises */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-misused-promises */
 import { FormEvent, useEffect, useState } from "react"
 
 import { copy, linkIcon, loader, tick } from "../assets"
@@ -37,9 +36,9 @@ export function Demo() {
     }
   }
 
-  function handleCopy(copyUrl: string) {
+  async function handleCopy(copyUrl: string) {
     setCopied(copyUrl)
-    navigator.clipboard.writeText(copyUrl)
+    await navigator.clipboard.writeText(copyUrl)
     setTimeout(() => setCopied(''), 3000)
   }
 
