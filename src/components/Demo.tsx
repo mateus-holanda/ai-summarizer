@@ -18,7 +18,7 @@ export function Demo() {
     summary: '',
   })
   const [allArticles, setAllArticles] = useState<Article[]>([article])
-  const [copied, setCopied] = useState('')
+  /* const [copied, setCopied] = useState('') */
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery()
 
@@ -37,11 +37,11 @@ export function Demo() {
     }
   }
 
-  function handleCopy(copyUrl: string) {
+  /* function handleCopy(copyUrl: string) {
     setCopied(copyUrl)
     navigator.clipboard.writeText(copyUrl)
     setTimeout(() => setCopied(''), 3000)
-  }
+  } */
 
   useEffect(() => {
     const articlesFromLocalStorage: Article[] = JSON.parse(
