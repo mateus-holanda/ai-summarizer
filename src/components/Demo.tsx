@@ -17,7 +17,7 @@ export function Demo() {
     url: '',
     summary: '',
   })
-  const [allArticles, setAllArticles] = useState<Article[]>([])
+  const [allArticles, setAllArticles] = useState<Article[]>([article])
   const [copied, setCopied] = useState('')
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery()
